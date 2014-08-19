@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ryan Duryea"]
   spec.email         = ["aguynamedryan@gmail.com"]
   spec.summary       = %q{Write database-agnostic, TAP-emitting unit tests for your database}
+  spec.description   = %q{A database-agnostic reimplementation of my favorite methods from pgTAP}
   spec.homepage      = "https://github.com/outcomesinsights/dbtap"
   spec.license       = "MIT"
 
@@ -18,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rake", "~> 10.3"
   spec.add_dependency 'thor', '~> 0.19'
-  spec.add_dependency 'sequelizer', '>= 0.0.3'
+  spec.add_dependency 'sequelizer', '~> 0.0', '>= 0.0.3'
 end
