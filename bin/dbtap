@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative '../lib/dbtap/cli'
+
+Dbtap::CLI.start(ARGV)
