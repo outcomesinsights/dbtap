@@ -1,4 +1,4 @@
-Copyright (c) 2014 Ryan Duryea
+Copyright (c) 2014 Outcomes Insights, Inc.
 
 MIT License
 
