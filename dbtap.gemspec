@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Dbtap::VERSION
   spec.authors       = ["Ryan Duryea"]
   spec.email         = ["aguynamedryan@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Write database-agnostic, TAP-emitting unit tests for your database}
+  spec.homepage      = "https://github.com/outcomesinsights/dbtap"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -20,4 +19,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
+  spec.add_dependency 'thor', '~> 0.19'
+  spec.add_dependency 'sequelizer', '>= 0.0.3'
 end
