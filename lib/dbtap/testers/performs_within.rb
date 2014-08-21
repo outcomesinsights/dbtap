@@ -27,10 +27,13 @@ module Dbtap
 
     def errors
       output = []
-      output << "  average runtime: #{elapsed_time} ms"
-      output << "  desired average: #{expected_time} +/- #{delta} ms"
-
-      output.join("\n")
+      if time_diff < 0
+        output << "too slow by #{time_proportion}"
+      else
+        output << "too fast by #{time_proportion}"
+      end
+      output << "average runtime: #{elapsed_time} ms"
+      output << "desired average: #{expected_time} +/- #{delta} ms"
     end
 
     private
@@ -52,6 +55,10 @@ module Dbtap
 
     def time_diff
       expected_time - elapsed_time
+    end
+
+    def time_proportion
+      elapsed_time.to_f / expected_time
     end
   end
 end

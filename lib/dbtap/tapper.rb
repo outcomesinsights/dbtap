@@ -37,7 +37,7 @@ module Dbtap
     def not_ok(test, i)
       message = "not ok #{i + 1}"
       message += ' - ' + test.name if test.name
-      message += "\n  " + test.errors.split.join("\n  ") if test.errors
+      message += "\n  " + test.errors.join("\n  ") if test.errors
       puts message
     end
 

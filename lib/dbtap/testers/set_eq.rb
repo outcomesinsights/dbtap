@@ -27,13 +27,14 @@ module Dbtap
     def errors
       output = []
       unless missing.empty?
-        output << "Missing #{missing.count}/#{expected_count} Records:\n    " + missing.first.inspect
+        output << "Missing #{missing.count}/#{expected_count} Records:"
+        output << '  ' + missing.first.inspect
       end
 
       unless extras.empty?
-        output << "Extra #{extras.count} over #{expected_count} Records:\n    " + extras.first.inspect
+        output << "Extra #{extras.count} over #{expected_count} Records:"
+        output << '  ' + extras.first.inspect
       end
-      output.join("\n")
     end
 
     private
