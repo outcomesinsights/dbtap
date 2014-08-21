@@ -22,7 +22,7 @@ module Dbtap
     end
 
     def ok?
-      (expected_time - elapsed_time).abs.to_f / repetitions <= delta
+      time_diff.abs.to_f <= delta
     end
 
     def errors
@@ -35,7 +35,7 @@ module Dbtap
 
     private
     def elapsed_time
-      @elapsed_time ||= bench_it
+      @elapsed_time ||= bench_it / repetitions.to_f
     end
 
     def bench_it
@@ -48,6 +48,10 @@ module Dbtap
 
     def repetitions
       10
+    end
+
+    def time_diff
+      expected_time - elapsed_time
     end
   end
 end
