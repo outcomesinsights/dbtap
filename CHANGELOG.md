@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Added
+- Nothing.
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- PerformsWithin reports too fast/slow as a factor of time.
+
+
 ## 0.0.2 - 2014-08-20
 
 ### Added
