@@ -28,9 +28,9 @@ module Dbtap
     def errors
       output = []
       if time_diff < 0
-        output << "too slow by #{time_proportion}"
+        output << "too slow by factor of #{time_factor}"
       else
-        output << "too fast by #{time_proportion}"
+        output << "too fast by factor of #{time_factor}"
       end
       output << "average runtime: #{elapsed_time} ms"
       output << "desired average: #{expected_time} +/- #{delta} ms"
@@ -59,6 +59,11 @@ module Dbtap
 
     def time_proportion
       elapsed_time.to_f / expected_time
+    end
+
+    def time_factor
+      return time_proportion if time_proportion > 1
+      return (1 / time_proportion)
     end
   end
 end
