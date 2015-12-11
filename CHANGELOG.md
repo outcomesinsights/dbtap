@@ -1,10 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 0.0.3 - 2015-12-11
 
 ### Added
-- Nothing.
+- Print SQL and error if a test raises a Sequel::DatabaseError
+- For set_eq, save a copy of all results to /tmp/actual.csv
 
 ### Deprecated
 - Nothing.

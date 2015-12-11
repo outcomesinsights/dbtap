@@ -1,3 +1,4 @@
+require 'csv'
 require_relative 'tester'
 
 module Dbtap
@@ -25,6 +26,7 @@ module Dbtap
     end
 
     def errors
+      drop_csv
       output = []
       unless missing.empty?
         output << "Missing #{missing.count}/#{expected_count} Records:"
@@ -48,6 +50,19 @@ module Dbtap
 
     def expected_count
       @expected_count = expected.count
+    end
+
+    def drop_csv
+      rows = actual.all
+      CSV.open('/tmp/actual.csv', 'w') do |csv|
+        unless rows.empty?
+          csv << rows.first.keys
+        end
+
+        rows.each do |row|
+          csv << row.values
+        end
+      end
     end
   end
 end
