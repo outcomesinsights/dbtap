@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 0.0.3 - 2015-12-11
 
 ### Added
 - Print SQL and error if a test raises a Sequel::DatabaseError
