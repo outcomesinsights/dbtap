@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 ### Added
-- Nothing.
+- Print SQL and error if a test raises a Sequel::DatabaseError
 
 ### Deprecated
 - Nothing.

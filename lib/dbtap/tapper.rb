@@ -10,6 +10,7 @@ module Dbtap
     attr :tests
     def initialize
       @tests = []
+      db.extension :error_sql
     end
 
     # Drives the evaluation of each test, emitting TAP-compliant messages
@@ -17,10 +18,15 @@ module Dbtap
     def run
       puts (1..tests.length).to_s
       tests.each_with_index do |test, i|
-        if test.is_ok?
-          ok(test, i)
-        else
-          not_ok(test, i)
+        begin
+          if test.is_ok?
+            ok(test, i)
+          else
+            not_ok(test, i)
+          end
+        rescue Sequel::DatabaseError
+          puts $!.sql
+          raise $!
         end
       end
     end
